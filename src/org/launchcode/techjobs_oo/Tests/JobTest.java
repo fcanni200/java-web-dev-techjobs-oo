@@ -26,7 +26,7 @@ public class JobTest {
 
     @Test
     public void testSettingJobId() {
-        assertEquals(false,test_job_Id.getId()== test_job_Id1.getId());
+        assertEquals(test_job_Id.getId(), test_job_Id1.getId(),1);
     }
     @Test
     public void testJobConstructorSetsAllFields() {
@@ -42,9 +42,9 @@ public class JobTest {
     public void testJobsForEquality() {
         Job id_test1 = new Job("Coder", new Employer("LaunchCode"), new Location("Delmar"), new PositionType("School"), new CoreCompetency("GetJob"));
         Job id_test2 = new Job("Coder", new Employer("LaunchCode"), new Location("Delmar"), new PositionType("School"), new CoreCompetency("GetJob"));
-
-        assertNotEquals(id_test1.getId(),
-                id_test2.getId());
+        int first_id= id_test1.getId();
+        int second_id= id_test2.getId();
+        assertFalse(id_test1.equals(id_test2));
     }
 
     @Test
